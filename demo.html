@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+            <meta content="email=no" name="format-detection"/>
+            <meta name="format-detection" content="telephone=no"/>
+            <meta name="apple-mobile-web-app-capable" content="yes"/>
+            <meta charset="UTF-8">
+                <script src="jquery-2.1.1.min.js"></script>
+                <script src="Chart.min.js"></script>
+                <title></title>
+                <style>
+                    .font-color{
+                        color:#5a5a5a;
+                    }
+                .font-color2{
+                    color:#989898;
+                    font-size: 14px;
+                }
+                </style>
+                <script>
+                    $(function () {
+                      var data = {
+                      labels: ["一周", "", "二周", "", "三周", "", "四周",""],
+                      datasets: [
+                                 {//248	0	9
+                                 fillColor: "rgba(248,0,9,0.1)",
+                                 strokeColor: "rgba(248,0,9,1)",
+                                 pointColor: "rgba(220,220,220,1)",
+                                 pointStrokeColor: "#fff",
+                                 data: [0, 2000, 3000, 6000, 7000, 8000, 9000,10000]
+                                 },
+                                 {//238	237	235 58	195	180
+                                 fillColor: "rgba(238,237,235,0.8)",
+                                 strokeColor: "rgba(58,195,180,1)",
+                                 pointColor: "rgba(151,187,205,1)",
+                                 pointStrokeColor: "#fff",
+                                 data: [0, 3000, 3000, 5000, 5000, 6000, 6500,7000],
+                                 
+                                 }
+                                 ]
+                      }
+                      
+                      //Get the context of the canvas element we want to select
+                      //$("#myChart").attr("width",document.body.clientWidth);
+                      var ctx = document.getElementById("myChart").getContext("2d");
+                      var myNewChart = new Chart(ctx).Line(data, {
+                                                           scaleSteps: 5,
+                                                           bezierCurve: false,
+                                                           pointDot: false,
+                                                           showTooltips: false,
+                                                           scale: {showHorizontalLines: false},
+                                                           datasetStrokeWidth: 1
+                                                           
+                                                           });
+                      
+                      myNewChart.scale.showVerticalLines = false
+                      myNewChart.scale.stepValue = 100
+                      
+                      
+                      
+                      console.log(myNewChart, document.body.clientWidth);
+                      //myNewChart.options.scaleGridLineWidth = 2;
+                      
+                      
+                      })
+                      
+                      
+                    </script>
+    </head>
+    <body>
+        
+        
+        <div style="line-height: 10px;">
+            <p class="font-color2">万元收益同比银行</p>
+            <span style="
+                width: 7px;
+                background-color: red;
+                height: 7px;
+                display: block;
+                float: left;
+                border-radius: 22em;    border-radius: 22em;margin-right: 9px;
+                ">&nbsp;</span><span style="float: left;" class="font-color">智享计划</span>
+            <span style="
+                width: 7px;
+                background-color: #00BCD4;
+                height: 7px;
+                display: block;
+                float: left;
+                border-radius: 22em;    margin-left: 30px;    margin-right: 3px;margin-right: 9px;
+                ">&nbsp;</span><span style="float: left;" class="font-color">其它理财</span>
+        </div>
+        <canvas id="myChart" style="width: 100%;height:200px;    margin-top: 20px;"></canvas>
+        
+    </body>
+</html>
